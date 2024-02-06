@@ -1,8 +1,16 @@
-def generate_pattern(n):
-    with open("pattern3.txt", "w") as file:
-        for i in range(1, n + 1):
-            line = "%2E%2E%2F" * i + "\n"
+import sys 
+
+def generate_pattern(n, pattern, output_name):
+    with open(output_name, "w") as file:
+        for i in range(1, int(n) + 1):
+            line = pattern * i + "\n"
             file.write(line)
 
-n = 30  # Change this to the desired value of n
-generate_pattern(n)
+inputs = sys.argv
+n = inputs[1]
+pattern = inputs[2]
+output_name = inputs[3]
+print(n)
+print(pattern)
+print(output_name)
+generate_pattern(n, pattern, output_name)
